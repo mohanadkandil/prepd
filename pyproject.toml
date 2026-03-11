@@ -1,10 +1,17 @@
 [project]
-name = "task"
+name = "prepd-api"
 version = "0.1.0"
-description = "Add your description here"
+description = "Prepd - AI-powered math question search API"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "anthropic>=0.84.0",
+    "fastapi>=0.135.1",
+    "openai>=2.26.0",
     "python-dotenv>=1.2.2",
+    "uvicorn>=0.41.0",
+    "zvec>=0.2.0",
 ]
+
+[project.scripts]
+ingest = "backend.ingest_zvec:ingest_questions"

@@ -9,7 +9,10 @@ import uuid
 from datetime import date
 from dotenv import load_dotenv
 import os
-load_dotenv()
+from pathlib import Path
+
+# Load .env from project root
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 # CONFIG
 
@@ -190,4 +193,7 @@ def generate_all(output_file: str = "questions.jsonl"):
 
 
 if __name__ == "__main__":
-    generate_all("questions.jsonl")
+    # Output to data folder (relative to project root)
+    import pathlib
+    output_path = pathlib.Path(__file__).parent.parent / "data" / "questions.jsonl"
+    generate_all(str(output_path))
